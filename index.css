@@ -1,0 +1,222 @@
+:root {
+  --color-dark-green: rgb(8, 26, 8);
+  --color-dark-green-trans: rgba(8, 26, 8, 0.479);
+  --color-white: rgb(236, 250, 225);
+  --font-large: 150px;
+  --font-medium: 40px;
+  --font-regular: 26px;
+  --font-small: 16px;
+  --main-width: 625px;
+  --task-column1: 310px;
+  --task-column2: 610px;
+  --task-width: 300px;
+}
+
+body {
+  background-color: var(--color-dark-green);
+  color: var(--color-white);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  font-size: var(--font-small);
+  font-family: "Open Sans";
+}
+
+h1 {
+  font-size: var(--font-large);
+}
+
+h2 {
+  font-size: var(--font-medium);
+}
+
+h3 {
+  font-size: var(--font-regular);
+}
+
+.main {
+  width: var(--main-width);
+  position: absolute;
+  left: 50%;
+  top: 500px;
+  transform: translateX(-50%);
+}
+
+.clock {
+  width: 600px;
+  text-align: left;
+  text-indent: 25px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.clock h1 {
+  transform: translate(0px, 10px);
+  opacity: 0.7;
+  line-height: 40px;
+}
+
+form input {
+  width: 400px;
+  height: 30px;
+  background: none;
+  appearance: none;
+  border: 0;
+  border-bottom: solid 1px var(--color-white);
+  text-indent: 20px;
+  margin-bottom: 20px;
+  color: var(--color-white);
+}
+
+form input::placeholder {
+  color: white;
+  opacity: 0.7;
+  text-align: center;
+}
+
+input:focus,
+input:active {
+  outline: none;
+}
+
+form.form_askname input {
+  text-align: center;
+}
+
+.toDoList_wrap {
+  opacity: 0;
+  transition: opacity 1s linear;
+  font-family: "Open Sans";
+}
+
+form.toDoList input {
+  font-family: "Open Sans";
+  border: solid 1px var(--color-white);
+  background-color: var(--color-dark-green-trans);
+  font-size: var(--font-small);
+  border-radius: 5px;
+}
+
+.ulToDoList {
+  width: var(--task-column1);
+  height: 190px;
+  position: absolute;
+  left: 50%;
+  top: 380px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.columnTwo {
+  width: var(--task-column2);
+}
+
+.ulToDoList li {
+  text-align: left;
+  width: var(--task-width);
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+  border-radius: 20px;
+  text-indent: 5px;
+  background-color: var(--color-dark-green);
+  position: relative;
+  left: -20px;
+}
+
+.ulToDoList li:nth-child(5n) {
+  margin-bottom: 0px;
+}
+
+.ulToDoList button {
+  background: none;
+  border: none;
+  cursor: grab;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+.weather_wrap {
+  width: 200px;
+  height: 120px;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+.weather {
+  text-align: right;
+  font-size: var(--font-regular);
+  line-height: 35px;
+  position: absolute;
+  top: -30px;
+  right: 10px;
+}
+
+.form_askname {
+  display: none;
+}
+
+.greetings {
+  display: none;
+}
+
+.reveal {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImg {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  z-index: -100;
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  animation: fadeIn 0.5s linear;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-large: 90px;
+    --font-medium: 35px;
+    --font-regular: 20px;
+    --font-small: 12px;
+    --main-width: 445px;
+    --task-column1: 190px;
+    --task-column2: 370px;
+    --task-width: 180px;
+  }
+  form input {
+    width: 300px;
+  }
+  .clock {
+    text-indent: 50px;
+  }
+  .ulToDoList {
+    top: 300px;
+  }
+  .weather {
+    line-height: 27px;
+  }
+}
